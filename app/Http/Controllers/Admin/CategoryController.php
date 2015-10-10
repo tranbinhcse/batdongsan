@@ -50,19 +50,19 @@ class CategoryController extends Controller {
 	}
 
 	public function getList(){
-		$data =Category::select('id','name','parent_id')->orderBy('id','DESC')->get()->toArray();
+		$data =Category::select('id','name','type')->orderBy('id','DESC')->get()->toArray();
 		return view('admin.cate.list',compact('data'));
 	}
 	public function getAdd(){
-		$parent = Category::select('id','name','parent_id')->get()->toArray();
+		$parent = Category::select('id','name','type')->get()->toArray();
 		return view('admin.cate.add',compact('parent'));
 	}
 	public function postAdd(CateRequest $request ){
 		$cate =new Category;
 		$cate->name 		= $request->txtCateName;
 		$cate->alias 		= changeTitle($request->txtCateName);
-		$cate->parent_id 	= $request->selectparent;
-		$cate->keywords 	= $request ->txtKeywords;
+		$cate->type 	= $request->optionsType;
+		$cate->keywords 	= $request ->tags;
 		$cate->metakey 	= $request ->txtMeta;
 		$cate->desciption 	= $request ->txtDescription;
 		$cate->remember_token 	= $request ->_token;

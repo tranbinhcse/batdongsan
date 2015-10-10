@@ -35,7 +35,7 @@ class LocationController extends Controller
         $data =  Province::select('id','name','type')->orderBy('id','DESC')->get();
         return Datatables::of($data) 
             ->addColumn('action', function ($name) {
-                return '<a href="province/edit/'.$name->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="province/delete/'.$name->id.'" onclick="return xacnhanxoa("Chắc muốn xóa không?"")" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></i></a> ';
+                return '<a href="province/edit/'.$name->id.'" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Edit</a><a href="province/delete/'.$name->id.'" onclick="return xacnhanxoa()" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></i></a> ';
             })
             ->editColumn('name', function ($name) {
                     return $name->type.' '.$name->name;
@@ -51,7 +51,7 @@ class LocationController extends Controller
         $data= DB::table('district')->leftJoin('province', 'district.province_id', '=', 'province.id')->select('district.id as id', 'district.name as name', 'district.type as type','province.name as cityname');
         return Datatables::of($data)
            ->addColumn('action', function ($name) {
-                return '<a href="district/edit/'.$name->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="district/delete/'.$name->id.'" onclick="return xacnhanxoa()" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></i></a> ';
+                return '<a href="district/edit/'.$name->id.'" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Edit</a><a href="district/delete/'.$name->id.'" onclick="return xacnhanxoa()" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></i></a> ';
             })
            ->editColumn('name', function ($name) {
                     return $name->type.' '.$name->name;
@@ -66,7 +66,7 @@ class LocationController extends Controller
     public function getWardListData(){
         return Datatables::of(DB::table('ward')->leftJoin('district','ward.district_id', '=' , 'district.id')->leftJoin('province', 'district.province_id', '=', 'province.id')->select('ward.id as wardid', 'ward.name as name','ward.type as type','district.name as districtname' ,'province.name as cityname'))
             ->addColumn('action', function ($name) {
-                return '<a href="ward/edit/'.$name->wardid.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="ward/delete/'.$name->wardid.'" onclick="return xacnhanxoa()" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></i></a> ';
+                return '<a href="ward/edit/'.$name->wardid.'" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Edit</a><a href="ward/delete/'.$name->wardid.'" onclick="return xacnhanxoa()" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></i></a> ';
             })
             ->editColumn('name', function ($name) {
                     return $name->type.' '.$name->name;

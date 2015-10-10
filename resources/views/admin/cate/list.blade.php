@@ -5,51 +5,69 @@
 <div class="wrapper">
     <a href="{!! URL::route('admin.cate.getAdd') !!}" class="btn btn-primary pull-right">Thêm danh mục dự án</a>
 </div>
-<!-- datatables plugin -->
-<div class="wrapper wrapper-white">
-   
-    <div class="table-responsive">
-        <table id="listcatebds" class="table table-bordered table-striped table-sortable">
-            <thead>
-                <tr> 
-                    <th>ID</th>
-                    <th>Tên Loại tin</th>
-                    <th>Danh mục cha</th>
-                    <th width="10%">Action</th>
-                </tr>
-            </thead>                               
-            <tbody>
-               
+
+
+<div class="row">
+            <div class="col-md-12">
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">Danh mục BDS</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>  
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content medias">
+                  
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+              <thead>
+              <tr>
+                <th class="text-center">ID</th>
+                <th>Tên</th>
+                <th>Loại</th>
+                <th>Control</th>
+              </tr>
+              </thead>
+              <tbody>
+
+           
+
                 <?php $stt = 0 ?>
                 @foreach ($data as $item)
                 <?php $stt = $stt + 1 ?>
                 <tr>
-                    <td>{!! $stt !!}</td>
-                    <td>{!! $item["name"] !!}</td>
+                    <td class="text-center">{!! $stt !!}</td>
+                    <td><a href="{!! URL::route('admin.cate.getEdit',$item['id']) !!}" title="">{!! $item["name"] !!}</a></td>
                     <td>
-                        @if ($item["parent_id"] == 0)
-                            {!! "None" !!}
+                        @if ($item["type"] == 1)
+                            {!! "BDS Bán" !!}
                         @else
-                            <?php 
-                                $parent = DB::table('categories')->where('id',$item["parent_id"])->first();
-                                echo $parent->name;
-                            ?>
+                            {!! 'BDS Cho thuê' !!}
                         @endif
 
                     </td>
                     <td>
-                        <a href="{!! URL::route('admin.cate.getEdit',$item['id']) !!}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
-                        <a  onclick="return xacnhanxoa('Bạn Có Chắc Là Muốn Xóa Không')" href="{!! URL::route('admin.cate.getDelete',$item['id']) !!}" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></i></a> 
+                        <a href="{!! URL::route('admin.cate.getEdit',$item['id']) !!}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                        <a  onclick="return xacnhanxoa('Bạn Có Chắc Là Muốn Xóa Không')" href="{!! URL::route('admin.cate.getDelete',$item['id']) !!}" class="btn btn-danger btn-xs">
+                        <i class="fa fa-times"></i></i></a> 
                     </td>
                 </tr>
                 @endforeach
+             
+               
+                                                         
 
+              </tbody>
+            </table>
+          </div>  
 
-            </tbody>
-        </table>
-    </div>
-    
-</div>                        
-<!-- ./datatables plugin -->
+                </div>
+              </div>  
+              
+            </div>
+          </div>
+
 
 @endsection

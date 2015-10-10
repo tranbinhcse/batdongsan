@@ -35,7 +35,7 @@ class PropertyController extends Controller
         //$property = DB::table('property')->leftJoin('categories','property.category','=','categories.id')->select('property.id as id','property.name as name','property.user_name as username','property.status as status','property.created_at as created_at','categories.name as catename');
         return Datatables::of($property) 
             ->addColumn('action', function ($name) {
-                return '<a href="property/edit/'.$name->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="property/delete/'.$name->id.'" onclick="return xacnhanxoa()" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></i></a> ';
+                return '<a href="property/edit/'.$name->id.'" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Edit</a><a href="property/delete/'.$name->id.'" onclick="return xacnhanxoa()" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></i></a> ';
             })
             ->editColumn('type',function($name){
                 if ($name->type == 1) {

@@ -3,44 +3,58 @@
 @section('controller','Property')
 @section('action','list')
 @section('title', 'Danh sách - Tin BDS')
-
+<div class="wrapper">
+    <a href="{!! URL::route('admin.property.getAdd') !!}" class="btn btn-primary pull-right">Thêm tin BDS</a>
+</div>
 
 <div class="row">
             <div class="col-md-12">
 
               <div class="widget">
                 <div class="widget-head">
-                  <div class="pull-left">Tin BDS</div>
+                  <div class="pull-left">Danh sách tin</div>
                   <div class="widget-icons pull-right">
-                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
-                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                  </div>  
+                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>  
                   <div class="clearfix"></div>
                 </div>
-                <div class="widget-content medias">
-                  
-          <div class="table">
-            <table id="property_list" class="table">
-              <thead>
-              <tr>
-                
-                <th>Ảnh</th>
-                <th>Tên</th>
-                <th>Người đăng</th>
-                <th>Ngày đăng</th>
-                <th>Loại</th>
-                <th>Trang thái tin</th>
-                <th>Control</th>
-              </tr>
-              </thead>
-            </table>
-          </div>
-        </div>
-      </div>  
-      
-    </div>
-  </div>
+                <div class="widget-content">
+                  <div class="padd">
+                    
+              <!-- Table Page -->
+              <div class="page-tables">
+                <!-- Table -->
+                <div class="table-responsive">
+                  <table id="property_list" cellpadding="0" cellspacing="0" border="0" id="data-table-1" width="100%">
+                    <thead>
+                      <tr>
+                        <th>Ảnh</th>
+                        <th>Tên</th>
+                        <th>Người đăng</th>
+                        <th>Ngày đăng</th>
+                        <th>Loại</th>
+                        <th>Trang thái tin</th>
+                        <th>Control</th>
+                      </tr>
+                    </thead>
+                     
+                     
+                  </table>
+                  <div class="clearfix"></div>
+                </div>
+                </div>
+              </div>
 
+          
+                  </div>
+                  
+                </div>
+              </div>  
+              
+            </div>
+          </div>
+
+
+ 
 
 @push('scripts')
 <script type="text/javascript">
@@ -48,8 +62,10 @@
 $(function() { 
     $('#property_list').DataTable({
         serverSide: true,
-       
-
+       // "fnInitComplete": function() {
+       //      $(".dataTables_wrapper").find("select,input").addClass("form-control");
+       //      $(".dataTables_wrapper").find(".dataTables_length").addClass("form-group");
+       //  },
         ajax: '{!! route('admin.property.listdata') !!}',
         columns: [
             { data: 'id', name: 'id',"orderable": false, "searchable": false},
@@ -69,21 +85,7 @@ $(function() {
             "infoFiltered": "(Kết quả tìm kiếm từ _MAX_ quận/huyện)"
         }
     });
-     /* update page content on search */
-    $("#property_list").on( 'search.dt', function() {
-        setTimeout(function(){
-            dev_layout_alpha_content.init(dev_layout_alpha_settings);
-        },200);                
-    });
-    /* ./update page content on search */
-    
-    /* uppdate page content on change length */
-    $('#property_list').on('length.dt', function() {
-        setTimeout(function(){
-            dev_layout_alpha_content.init(dev_layout_alpha_settings);
-        },100);                
-    });
-    /* ./uppdate page content on change length */
+     
  });
 
 

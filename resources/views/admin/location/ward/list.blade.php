@@ -3,35 +3,63 @@
 @section('controller','Location')
 @section('action','list')
 @section('title', 'Danh sách - Xã/Phường/Thị Trấn')
- <!-- datatables plugin -->
-<div class="wrapper wrapper-white">
-   
-    <div class="">
-        <table id="wardlist" class="table table-bordered table-striped table-sortable">
-            <thead>
-                <tr> 
-                    <th width="10%">ID</th>
-                    <th width="25%">Xã/Phường/Thị Trấn</th> 
-                    <th width="20%">Quận/Huyện</th>
-                    <th width="15%">Tỉnh</th> 
-                    <th width="10%">Action</th> 
-                </tr>
-            </thead>                               
-        </table>
-    </div>
-</div>    
+ 
+<div class="wrapper">
+    <a href="{!! URL::route('admin.location.getWardAdd') !!}" class="btn btn-primary pull-right">Thêm Quận</a>
+</div>
+
+<div class="row">
+            <div class="col-md-12">
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">Danh sách tin</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>  
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+                    
+              <!-- Table Page -->
+              <div class="page-tables">
+                <!-- Table -->
+                <div class="table-responsive">
+                  <table id="wardlist" cellpadding="0" cellspacing="0" border="0" id="data-table-1" width="100%">
+                    <thead>
+                      <tr>
+                        <th width="10%">ID</th>
+                        <th width="25%">Xã/Phường/Thị Trấn</th> 
+                        <th width="20%">Quận/Huyện</th>
+                        <th width="15%">Tỉnh</th> 
+                        <th width="10%">Action</th> 
+                      </tr>
+                    </thead>
+                     
+                     
+                  </table>
+                  <div class="clearfix"></div>
+                </div>
+                </div>
+              </div>
+
+          
+                  </div>
+                  
+                </div>
+              </div>  
+              
+            </div>
+          </div>
 
 @push('scripts')
 <script type="text/javascript">
 
 $(function() { 
     $('#wardlist').DataTable({
-        processing: false,
+        processing: true,
         serverSide: true,
-        "fnInitComplete": function() {
-                    $(".dataTables_wrapper").find("select,input").addClass("form-control");
-                },
-
         ajax: '{!! route('admin.location.getWardListData') !!}',
         columns: [
             { data: 'wardid', name: 'wardid',"orderable": false, "searchable": false},
@@ -43,27 +71,13 @@ $(function() {
         ],
         "language": {
             "lengthMenu": "Hiển thị _MENU_ dòng trên trang",
-            "zeroRecords": "Nothing found - sorry",
+            "zeroRecords": "Không tìm thấy",
             "info": "Hiển thị từ _START_ đến _END_ của trang _PAGE_ / _PAGES_ trang",
-            "infoEmpty": "No records available",
+            "infoEmpty": "Không có dữ liệu",
             "infoFiltered": "(Kết quả tìm kiếm từ _MAX_ Xã/phường/thị trấn)"
         }
     });
-     /* update page content on search */
-    $("#wardlist").on( 'search.dt', function() {
-        setTimeout(function(){
-            dev_layout_alpha_content.init(dev_layout_alpha_settings);
-        },200);                
-    });
-    /* ./update page content on search */
     
-    /* uppdate page content on change length */
-    $('#wardlist').on('length.dt', function() {
-        setTimeout(function(){
-            dev_layout_alpha_content.init(dev_layout_alpha_settings);
-        },100);                
-    });
-    /* ./uppdate page content on change length */
  }); 
 </script>
 @endpush
