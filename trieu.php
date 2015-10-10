@@ -1,1 +1,2 @@
-edit đi bình
+ 
+ANh them cai nay roi xoa cai o tren cua chú
