@@ -1,0 +1,52 @@
+﻿
+
+@media print {
+    @page {
+        margin: 0;
+        /*margin: 1cm 1cm;*/
+    }
+
+    /* -- Typography -- */
+    body {
+        width: 100%;
+        border: 0;
+        margin: 0 5%;
+        padding: 0;
+        float: none !important;
+    }
+
+    p, table, ul, ol, dl, blockquote, pre, code, form {
+        margin: 0 0 1em;
+    }
+    #myGallery {
+        display: none;
+    }
+
+    h1, h2, h3, h4, h5 {
+        color: #0091b2 !important;
+        padding-left: 0 !important;
+        float: none !important;
+        border: none !important;
+    }
+    .product-detail .pd-tab, .MultiBanner1, .MultiBanner2,#headerregister, .banner,#boxProductSaved,.header .header-content .logo .action,.menu,.breakcum,.index-page .content .content-right,.index-page .content .content-left .pd-other,.index-page .content .content-left .comment,.footer,.product-detail .pd-share {
+         display:none !important;
+     }
+      .content-left, .galleria-image {
+        width: 1000px !important;
+    }
+     .index-page .content .content-left .product-detail {width:940px !important;margin:0 auto;}
+    .pd-info .pd-dacdiem,.pd-info .pd-contact {width:450px !important;}
+
+     #imgPrint {
+        display: block !important;
+        text-align: center;
+    } 
+
+        #imgPrint ul li img {
+            margin-top: 15px;
+        }
+        .product-detail .pd-location {padding-left:0 !important;}
+
+        .header .header-logo .hdcontent {margin-top:30px !important}
+}
+ 

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <!-- meta section -->
+        <title>Intuitive - Admin Dashboard Template</title>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" >
+        
+        <link rel="icon" href="favicon.ico" type="image/x-icon" >
+        <!-- ./meta section -->
+        
+        <!-- css styles -->
+        <link rel="stylesheet" type="text/css" href="css/default-blue-white.css" id="dev-css">
+        <!-- ./css styles -->                              
+        
+        <!--[if lte IE 9]>
+        <link rel="stylesheet" type="text/css" href="css/dev-other/dev-ie-fix.css">
+        <![endif]-->
+        
+        <!-- javascripts -->
+        <script type="text/javascript" src="js/plugins/modernizr/modernizr.js"></script>
+        <!-- ./javascripts -->
+        
+        <style>
+            .dev-page{visibility: hidden;}            
+        </style>
+    </head>
+    <body>
+        <!-- set loading layer -->
+        <div class="dev-page-loading preloader"></div>
+        <!-- ./set loading layer -->       
+        
+        <!-- page wrapper -->
+        <div class="dev-page">
+            
+            <!-- page header -->    
+            <div class="dev-page-header">
+                
+                <div class="dph-logo">
+                    <a href="index.html">Intuitive</a>
+                    <a class="dev-page-sidebar-collapse">
+                        <div class="dev-page-sidebar-collapse-icon">
+                            <span class="line-one"></span>
+                            <span class="line-two"></span>
+                            <span class="line-three"></span>
+                        </div>
+                    </a>
+                </div>
+
+                                                    
+                
+            </div>
+            <!-- ./page header -->
+            
+            <!-- page container -->
+            <div class="dev-page-container">
+
+               <!-- page sidebar -->
+                <div class="dev-page-sidebar">                    
+                  
+                    
+                    <ul class="dev-page-navigation">
+                        <li class="title">Navigation</li>
+                        <li class="active">
+                            <a href="index.html"><i class="fa fa-desktop"></i> <span>Dashboard</span></a>
+                        </li>
+                        <li class="title">Bất động sản</li>
+                        <li class="active">
+                            <a href="#"><i class="fa fa-cogs"></i> <span>Tin bất động sản</span>  <span class="label label-danger">+1</span></a>
+                            <ul>                                
+                                <li><a href="product_list.html">Danh sách tin</a></li>
+                                <li class="active"><a href="product_cate.html">Phân loại tin</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-cogs"></i><span>Dự án</span></a>
+                            <ul>
+                                <li><a href="project_add.html">Thêm dự án</a></li>
+                                <li><a href="project_list.html">Danh sách dự án</a></li>
+                                <li><a href="project_cate.html">Danh mục dự án</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="title">Tin tức</li>
+                        <li><a href="news_add.html"><i class="fa fa-cogs"></i><span>Thêm tin mới</span></a></li>
+                        <li><a href="news_list.html"><i class="fa fa-cogs"></i><span>Danh sách tin</span></a></li>
+                        <li><a href="news_cate.html"><i class="fa fa-cogs"></i><span>Danh mục tin</span></a></li>
+                        <li class="title">Hệ thống</li>
+                        <li><a href="#"><i class="fa fa-cogs"></i><span>Thành viên</span></a>
+                            <ul>
+                                <li><a href="user_list.html">Danh sách Thành viên</a></li>
+                                <li><a href="user_add.html">Thêm Thành viên</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-cogs"></i><span>Location</span></a>
+                        <ul>
+                            <li><a href="city.html"><span>Tỉnh/thành</span></a>
+                                <ul>
+                                    <li><a href="city_list.html">Danh sách tỉnh/thành</a></li>
+                                    <li><a href="city_add.html">Thêm tỉnh/thành</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><span>Quận/Huyện</span></a>
+                                <ul>
+                                    <li><a href="district_list.html">Danh sách quận/huyện</a></li>
+                                    <li><a href="cdistrict_add.html">Thêm quận/huyện</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><span>Xã/Phường</span></a>
+                                <ul>
+                                    <li><a href="ward_list.html">Danh sách xã/phường</a></li>
+                                    <li><a href="ward_add.html">Thêm xã/phường</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <li><a href="setting.html"><i class="fa fa-cogs"></i><span>Cài đặt</span></a></li>
+                            
+                        
+                    </ul>
+                    
+                </div>
+                <!-- ./page sidebar -->
+                
+                <!-- page content -->
+                <div class="dev-page-content">                    
+                    <!-- page content container -->
+                    <div class="container">
+
+                        <div class="wrapper">
+                            <a href="project_cate_add.html" class="btn btn-primary">Thêm Danh muục dự án</a>
+                        </div>
+                        <!-- datatables plugin -->
+                        <div class="wrapper wrapper-white">
+                           
+                            <div class="table-responsive">
+                                <table id="listcatebds" class="table table-bordered table-striped table-sortable">
+                                    <thead>
+                                        <tr> 
+                                            <th>ID</th>
+                                            <th>Tên Loại tin</th>
+                                            <th>Danh mục cha</th>
+                                            <th width="10%">Action</th>
+                                        </tr>
+                                    </thead>                               
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Cho thuê đất</td>
+                                            <td>BDS Cho thuê</td>
+                                            <td>
+                                                <a href="product_cate_add.html" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
+                                                <a href="#" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></i></a> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Cho thuê đất</td>
+                                            <td>BDS Cho thuê</td>
+                                            <td>
+                                                <a href="product_cate_add.html" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
+                                                <a href="#" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></i></a> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Cho thuê đất</td>
+                                            <td>BDS Cho thuê</td>
+                                            <td>
+                                                <a href="product_cate_add.html" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
+                                                <a href="#" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></i></a> 
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>                        
+                        <!-- ./datatables plugin -->
+              
+
+
+                      
+                        <!-- Copyright -->
+                        <div class="copyright">
+                            <div class="pull-left">
+                                &copy; 2015 <strong>BT CMS v1.0</strong>. All rights reserved.
+                            </div>
+                            <div class="pull-right">
+                                <a href="#">Terms of use</a> / <a href="#">Privacy Policy</a>
+                            </div>
+                        </div>
+                        <!-- ./Copyright -->
+                    </div>
+                    <!-- ./page content container -->
+                                        
+                </div>
+                <!-- ./page content -->                                               
+            </div>  
+            <!-- ./page container -->
+                        
+        </div>
+        <!-- ./page wrapper -->
+
+        <!-- javascript -->
+        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>       
+        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>        
+        <script type="text/javascript" src="js/plugins/moment/moment.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/knob/jquery.knob.min.js"></script>
+        <script type="text/javascript" src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+        <script type="text/javascript" src="js/plugins/summernote/summernote.min.js"></script>
+        <script type="text/javascript" src="js/plugins/tags-input/jquery.tagsinput.min.js"></script> 
+        <script type="text/javascript" src="js/plugins/bootstrap-select/bootstrap-select.js"></script>
+        <script type="text/javascript" src="js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>    
+        
+        <script type="text/javascript" src="js/plugins/maskedinput/maskedinput.min.js"></script>        
+        <script type="text/javascript" src="js/plugins/jquery-validate/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/plugins/jquery-validate/localization/messages_vi.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="js/plugins/sortable/sortable.min.js"></script>
+      
+        <script type="text/javascript" src="js/dev-loaders.js"></script>
+        <script type="text/javascript" src="js/dev-layout-default.js"></script>
+        <script type="text/javascript" src="js/demo.js"></script>
+        <script type="text/javascript" src="js/dev-app.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <!-- ./javascript -->
+    </body>
+</html>
+
+
+
+
+
+

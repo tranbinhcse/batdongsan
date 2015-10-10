@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <!-- meta section -->
+        <title>Intuitive - Admin Dashboard Template</title>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" >
+        
+        <link rel="icon" href="favicon.ico" type="image/x-icon" >
+        <!-- ./meta section -->
+        
+        <!-- css styles -->
+        <link rel="stylesheet" type="text/css" href="css/default-blue-white.css" id="dev-css">
+        <!-- ./css styles -->                              
+        
+        <!--[if lte IE 9]>
+        <link rel="stylesheet" type="text/css" href="css/dev-other/dev-ie-fix.css">
+        <![endif]-->
+        
+        <!-- javascripts -->
+        <script type="text/javascript" src="js/plugins/modernizr/modernizr.js"></script>
+        <!-- ./javascripts -->
+        
+        <style>
+            .dev-page{visibility: hidden;}            
+        </style>
+    </head>
+    <body>
+        <!-- set loading layer -->
+        <div class="dev-page-loading preloader"></div>
+        <!-- ./set loading layer -->       
+        
+        <!-- page wrapper -->
+        <div class="dev-page">
+            
+            <!-- page header -->    
+            <div class="dev-page-header">
+                
+                <div class="dph-logo">
+                    <a href="index.html">Intuitive</a>
+                    <a class="dev-page-sidebar-collapse">
+                        <div class="dev-page-sidebar-collapse-icon">
+                            <span class="line-one"></span>
+                            <span class="line-two"></span>
+                            <span class="line-three"></span>
+                        </div>
+                    </a>
+                </div>
+
+                                                       
+                
+            </div>
+            <!-- ./page header -->
+            
+            <!-- page container -->
+            <div class="dev-page-container">
+
+                <!-- page sidebar -->
+                <div class="dev-page-sidebar">                    
+                  
+                    
+                    <ul class="dev-page-navigation">
+                        <li class="title">Navigation</li>
+                        <li class="active">
+                            <a href="index.html"><i class="fa fa-desktop"></i> <span>Dashboard</span></a>
+                        </li>
+                        <li class="title">Bất động sản</li>
+                        <li>
+                            <a href="#"><i class="fa fa-cogs"></i> <span>Tin bất động sản</span>  <span class="label label-danger">+1</span></a>
+                            <ul>                                
+                                <li><a href="product_list.html">Danh sách tin</a></li>
+                                <li><a href="product_cate.html">Phân loại tin</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-cogs"></i><span>Dự án</span></a>
+                            <ul>
+                                <li><a href="project_add.html">Thêm dự án</a></li>
+                                <li><a href="project_list.html">Danh sách dự án</a></li>
+                                <li><a href="project_cate.html">Danh mục dự án</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="title">Tin tức</li>
+                        <li><a href="news_add.html"><i class="fa fa-cogs"></i><span>Thêm tin mới</span></a></li>
+                        <li><a href="news_list.html"><i class="fa fa-cogs"></i><span>Danh sách tin</span></a></li>
+                        <li><a href="news_cate.html"><i class="fa fa-cogs"></i><span>Danh mục tin</span></a></li>
+                        <li class="title">Hệ thống</li>
+                        <li><a href="#"><i class="fa fa-cogs"></i><span>Thành viên</span></a>
+                            <ul>
+                                <li><a href="user_list.html">Danh sách Thành viên</a></li>
+                                <li><a href="user_add.html">Thêm Thành viên</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-cogs"></i><span>Location</span></a>
+                        <ul>
+                            <li><a href="city.html"><span>Tỉnh/thành</span></a>
+                                <ul>
+                                    <li><a href="city_list.html">Danh sách tỉnh/thành</a></li>
+                                    <li><a href="city_add.html">Thêm tỉnh/thành</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><span>Quận/Huyện</span></a>
+                                <ul>
+                                    <li><a href="district_list.html">Danh sách quận/huyện</a></li>
+                                    <li><a href="cdistrict_add.html">Thêm quận/huyện</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><span>Xã/Phường</span></a>
+                                <ul>
+                                    <li><a href="ward_list.html">Danh sách xã/phường</a></li>
+                                    <li><a href="ward_add.html">Thêm xã/phường</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <li><a href="setting.html"><i class="fa fa-cogs"></i><span>Cài đặt</span></a></li>
+                            
+                        
+                    </ul>
+                    
+                </div>
+                <!-- ./page sidebar -->
+                
+                <!-- page content -->
+                <div class="dev-page-content">                    
+                    <!-- page content container -->
+                    <div class="container">
+                        
+                      
+                        
+                         
+
+                          <form id="dangtin" role="form" action="javascript:alert('Form #validate submited');">
+                            <div class="wrapper">
+                                <div class="page-subtitle">
+                                    <h3>Thông tin chung</h3>
+                                    <p>This jQuery plugin makes simple clientside form validation easy, whilst still offering plenty of customization options.</p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">                        
+                                        <div class="form-group">
+                                            <label>Tiêu đề tin <span>Bất động sản</span></label>                                
+                                            <input type="text" name="titlebds" class="form-control" minlength="10" maxlength="255" required value=""/>
+                                        </div>                        
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Loại tin <span>Default</span></label>
+                                                <br/>                               
+                                                <div class="radio radio-inline col-md-5">
+                                                    <input type="radio" name="radio1" id="radio1" value="option1" checked=""/>
+                                                    <label for="radio1">BĐS Bán</label>
+                                                </div>
+                                                <div class="radio radio-inline col-md-5">
+                                                    <input type="radio" name="radio1" id="radio2" value="option2"/>
+                                                    <label for="radio2">BĐS Cho thuê</label>
+                                                </div>
+                                            </div>                        
+                                        </div>
+                                        <div class="col-md-3">                        
+                                            <div class="form-group">
+                                                <label>Loại <span>Nhà Đất</span></label>
+                                                <select name="loainhadat" class="form-control selectpicker" required min="0" data-live-search="true"  title='Chọn ít nhất 1 loại nhà đất'>
+                                                    <option value="-1">--Chọn loại nhà đất--</option>
+                                                    <option value="1">Bán căn hộ chung cư</option>
+                                                    <option value="2">Bán nhà riêng</option>
+                                                    <option value="3">Bán đất nền</option>
+                                                    <option value="4">Nhà mặt tiền</option>
+                                                    <option value="5">Nhà kho</option>
+                                                </select>
+                                            </div>                        
+                                        </div>
+                                        <div class="col-md-3">                        
+                                            <div class="form-group">
+                                                <label>Diện <span>Tích</span></label>                                
+                                                <input name="dientich" type="number" class="form-control" required  value=""/>
+                                            </div>                        
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">                     
+                                        <div class="form-group">
+                                            <label>Dự <span>án</span></label>
+                                            <select name="donvi" class="form-control selectpicker">
+                                                <option value="-1">--Chọn dự án--</option>
+                                                <option value="1">Triệu</option>
+                                                <option value="2">tỷ</option>
+                                                <option value="3">trăm</option>
+                                                <option value="4">Cây vàng</option>
+                                                <option value="5">Triệu/m<sup>2</sup></option>
+                                            </select>
+                                        </div>   
+                                    </div>
+                                    <div class="col-md-3">                        
+                                        <div class="form-group">
+                                            <label>Giá <span>tiền</span></label>                                
+                                            <input name="pricebds" type="number" required minlength="1" maxlength="10" class="form-control" value=""/>
+                                        </div>                        
+                                    </div>
+                                    <div class="col-md-3">                        
+                                        <div class="form-group">
+                                            <label>Đơn vị <span>tính</span></label>
+                                            <select name="donvi" class="form-control selectpicker" required min="0" title='Chọn 1 đơn vị'>
+                                                <option value="-1">--Chọn đơn vi--</option>
+                                                <option value="1">Triệu</option>
+                                                <option value="2">tỷ</option>
+                                                <option value="3">trăm</option>
+                                                <option value="4">Cây vàng</option>
+                                                <option value="5">Triệu/m<sup>2</sup></option>
+                                            </select>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+
+                            <div class="wrapper  wrapper-white">
+                                <div class="page-subtitle">
+                                    <h3>Hình ảnh</h3> 
+                                </div>
+                                <div class="row">
+                                    <div id="dzupload" class="dropzone dropzone-mini">
+                                          <div class="dz-default dz-message"></div> 
+                                    </div> 
+                                </div>  
+                            </div>
+                            <div class="wrapper">
+                                <div class="page-subtitle">
+                                    <h3>Vị trí BDS</h3>
+                                    <p>This jQuery plugin makes simple clientside form validation easy, whilst still offering plenty of customization options.</p>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">                        
+                                        <div class="form-group">
+                                            <label>Tỉnh <span>Thành phố</span></label>
+                                            <select name="tinhthanh" class="form-control selectpicker" required min="1"  title='Hãy chọn tỉnh/thành' data-live-search="true">
+                                                <option value="-1">--Chọn tỉnh/thành--</option>
+                                                <option value="1">Bán căn hộ chung cư</option>
+                                                <option value="2">Bán nhà riêng</option>
+                                                <option value="3">Bán đất nền</option>
+                                                <option value="4">Nhà mặt tiền</option>
+                                                <option value="5">Nhà kho</option>
+                                            </select>
+                                        </div>                        
+                                    </div>
+                                    <div class="col-md-4">                        
+                                        <div class="form-group">
+                                            <label>Quận <span>Huyện</span></label>
+                                            <select name="quanhuyen" class="form-control selectpicker" required min="1" title='Hãy chọn quận/huyện' data-live-search="true"> 
+                                                <option value="-1">--Chọn quận/huyện--</option>
+                                                <option value="1">Bán căn hộ chung cư</option>
+                                                <option value="2" selected>Bán nhà riêng</option>
+                                                <option value="3">Bán đất nền</option>
+                                                <option value="4">Nhà mặt tiền</option>
+                                                <option value="5">Nhà kho</option>
+                                            </select>
+                                        </div>                        
+                                    </div>
+                                    <div class="col-md-4">                        
+                                        <div class="form-group">
+                                            <label>Xã <span>Phường</span></label>
+                                            <select name="xaphuong" class="form-control selectpicker" required min="1" title='Hãy chọn xã/phường' data-live-search="true">
+                                                <option value="-1">--Chọn xã/phường--</option>
+                                                <option value="1">Bán căn hộ chung cư</option>
+                                                <option value="2">Bán nhà riêng</option>
+                                                <option value="3">Bán đất nền</option>
+                                                <option value="4">Nhà mặt tiền</option>
+                                                <option value="5">Nhà kho</option>
+                                            </select>
+                                        </div>                        
+                                    </div>
+                                    <div class="col-md-12">                        
+                                        <div class="form-group">
+                                            <label>Địa điểm <span>Bất động sản</span></label>                                
+                                            <input type="text" name="addressbds" class="form-control" minlength="10" maxlength="255" required value=""/>
+                                        </div>                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrapper wrapper-white">
+                                <div class="page-subtitle">
+                                    <h3>Thông tin khác</h3>
+                                    <p>This jQuery plugin makes simple clientside form validation easy, whilst still offering plenty of customization options.</p>
+                                </div>
+
+                                <div class="col-md-4">                        
+                                    <div class="form-group">
+                                        <label>Mặt tiền</label>
+                                        <div class="input-group">                          
+                                            <input type="text" name="mattienbds" class="form-control" value=""/>
+                                            <span class="input-group-addon">m</span>
+                                        </div> 
+                                    </div>                        
+                                </div>
+
+                                <div class="col-md-4">                        
+                                    <div class="form-group">
+                                        <label>Đường trước nhà</label>                                
+                                        <div class="input-group">                          
+                                            <input type="text" name="duongbds" class="form-control" value=""/>
+                                            <span class="input-group-addon">m</span>
+                                        </div> 
+                                    </div>                        
+                                </div>
+
+                                <div class="col-md-4">                        
+                                    <div class="form-group">
+                                        <label>Số tầng</label>                                
+                                        <input type="text" name="tangbds" class="form-control" value=""/>
+                                    </div>                        
+                                </div>
+                                <div class="col-md-4">                        
+                                    <div class="form-group">
+                                        <label>Số phòng</label>                                
+                                        <input type="text" name="phongbds" class="form-control" value=""/>
+                                    </div>                        
+                                </div>
+                                <div class="col-md-4">                        
+                                    <div class="form-group">
+                                        <label>Số toilet</label>                                
+                                        <input type="text" name="toiletbds" class="form-control" value=""/>
+                                    </div>                        
+                                </div>
+                                <div class="col-md-4">                        
+                                    <div class="form-group">
+                                        <label>Hướng BDS</label>
+                                        <select name="huongbds" class="form-control selectpicker">
+                                            <option value="-1">--Chọn xã/phường--</option>
+                                            <option value="1">Bán căn hộ chung cư</option>
+                                            <option value="2">Bán nhà riêng</option>
+                                            <option value="3">Bán đất nền</option>
+                                            <option value="4">Nhà mặt tiền</option>
+                                            <option value="5">Nhà kho</option>
+                                        </select>
+                                    </div>                        
+                                </div>
+                            </div>
+                            <!-- summernote plugin -->
+                        <div class="wrapper">
+                            <div class="page-subtitle">
+                                <h3>Mô tả chi tiết</h3>
+                                <p>Super Simple WYSIWYG Editor on Bootstrap</p>
+                            </div>
+                        
+                            <div class="summernote">
+                                <h2>Some heading goes here</h2>
+                                <p><span style="font-weight: bold;">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Ut vel consequat massa. <span style="color: rgb(99, 0, 0); font-weight: bold;">Aliquam augue odio, vulputate non tempus et, sollicitudin in magna</span>. Sed dignissim, tellus sagittis varius vestibulum, erat sapien varius dolor, non elementum sem velit ut nunc. Sed gravida vehicula ipsum, sit amet auctor nunc ultricies et. <a href="http://#">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</a> <span style="font-style: italic;">Morbi dapibus massa faucibus</span>, euismod augue non, facilisis odio. In blandit consectetur nibh, eu venenatis ligula condimentum sed. Nullam magna velit, eleifend ut tincidunt sit amet, sagittis id ligula. Aenean eget metus auctor, fringilla nunc in, lacinia nisi. Suspendisse potenti. Suspendisse vel vulputate lectus.</p>
+                                <blockquote>
+                                    <span style="text-decoration: underline;">Cras posuere scelerisque faucibus</span>. Fusce consectetur elit at nisi accumsan rutrum. Sed quis risus vel purus hendrerit mattis. In hac habitasse platea dictumst. Morbi volutpat justo in nunc tincidunt, sed auctor dui ullamcorper. <span style="color: rgb(41, 82, 24);">Praesent eleifend adipiscing nisi</span>. <a href="http://#">Aliquam mi elit, cursus nec posuere vel, varius in tortor</a>. Nullam fermentum nunc felis, sed varius ante auctor et.
+                                </blockquote>
+                                <p>Curabitur urna neque, pharetra vel felis commodo, dictum bibendum odio.<a href="http://#"> Suspendisse mauris augue</a>, volutpat vel augue in, pellentesque semper turpis. Donec congue, magna quis condimentum facilisis, dolor mauris suscipit enim, eu aliquam risus elit vel diam.</p>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Ảnh đại diện</label>
+                                    <br/>                                                               
+                                    <input type="file" class="file btn-primary" multiple name="file_3"/>
+                                </div>                        
+                            </div>
+                            
+
+
+                        </div>
+                        <div class="wrapper wrapper-white">
+                            <div class="page-subtitle">
+                                <h3>SEO</h3>
+                                <p>Tối ưu hóa cho seo</p>
+                            </div>
+                            <div class="col-md-12">                        
+                                <div class="form-group">
+                                    <label><span>SEO Keyword</span></label>                                
+                                    <input type="text" name="seo_key" class="form-control" value=""/>
+                                </div>                        
+                            </div>
+
+                            <div class="col-md-12">                        
+                                <div class="form-group">
+                                    <label>Meta Keyword</label>                                
+                                    <input type="text" name="meta_key" class="form-control" value=""/>
+                                </div>                        
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Tags <span>Input</span></label>                                
+                                    <input type="text" class="tags" value="PHP,JS,jQuery,HTML,CSS"/>
+                                </div>
+                            </div>
+                          
+                            
+                        </div>                        
+                        <!-- ./summernote plugin -->
+                           <div class="wrapper">
+                                <div class="pull-right margin-top-10">
+                                    <button class="btn btn-warning hide-prompts" type="button">Hide prompts</button>
+                                    <button class="btn btn-danger" type="submit">Submit</button>
+                                </div>
+                            </div>
+                      
+
+                         </form>
+
+
+
+              
+                         
+                        <!-- Copyright -->
+                        <div class="copyright">
+                            <div class="pull-left">
+                                &copy; 2015 <strong>BT-Media CMS V1</strong>. All rights reserved.
+                            </div>
+                            <div class="pull-right">
+                                <a href="#">Terms of use</a> / <a href="#">Privacy Policy</a>
+                            </div>
+                        </div>
+                        <!-- ./Copyright -->
+                        
+                    </div>
+                    <!-- ./page content container -->  
+                                        
+                </div>
+                <!-- ./page content -->                                               
+            </div>  
+            <!-- ./page container -->
+             
+                     
+        </div>
+        <!-- ./page wrapper -->
+
+        <!-- javascript -->
+        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>       
+        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>        
+        <script type="text/javascript" src="js/plugins/moment/moment.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/knob/jquery.knob.min.js"></script>
+        <script type="text/javascript" src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+        <script type="text/javascript" src="js/plugins/summernote/summernote.min.js"></script>
+        <script type="text/javascript" src="js/plugins/tags-input/jquery.tagsinput.min.js"></script> 
+        <script type="text/javascript" src="js/plugins/bootstrap-select/bootstrap-select.js"></script>
+        <script type="text/javascript" src="js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>    
+        
+        <script type="text/javascript" src="js/plugins/maskedinput/maskedinput.min.js"></script>        
+        <script type="text/javascript" src="js/plugins/jquery-validate/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/plugins/jquery-validate/localization/messages_vi.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="js/plugins/sortable/sortable.min.js"></script>
+
+        <script type="text/javascript" src="js/plugins/dropzone/dropzone.min.js"></script>
+    
+        <script type="text/javascript" src="js/dev-loaders.js"></script>
+        <script type="text/javascript" src="js/dev-layout-default.js"></script>
+        <script type="text/javascript" src="js/demo.js"></script>
+        <script type="text/javascript" src="js/dev-app.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <!-- ./javascript -->
+    </body>
+</html>
+
+
+
+
+
+
