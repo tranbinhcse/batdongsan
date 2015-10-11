@@ -7,7 +7,7 @@
 <div class="row">
 <form id="postProperty" class="form-horizontal" role="form" action="" method="POST" enctype="multipart/form-data">
 <input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
-<div class="col-md-7">
+<div class="col-lg-7">
   <div class="widget wgreen">
     
     <div class="widget-head">
@@ -21,10 +21,10 @@
     <div class="widget-content">
       <div class="padd">
 
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Tiêu đề bài viết</label>
-          <div class="col-lg-9">
-            <input type="text" name="txtName" class="form-control" placeholder="Input Box">
+        <div class="form-group required">
+          <label class="col-lg-3 control-label ">Tiêu đề bài viết</label>
+          <div class="col-lg-9"> 
+          <input type="text" name="txtName" class="form-control" required minlength="5" maxlength="255" placeholder="Input Box">
           </div>
         </div> 
         
@@ -56,7 +56,7 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Loại bất động sản</label>
           <div class="col-lg-9"  id="cate">
-            <select class="form-control" name="selectCategory">
+            <select class="form-control" required name="selectCategory">
               <option value="0">--Chọn danh mục--</option>
             </select>
           </div>
@@ -65,7 +65,7 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Tỉnh/Thành</label>
           <div class="col-lg-5">
-            <select name="selectProvince" id="wProvince" class="form-control" data-live-search="true" data-size="10">
+            <select name="selectProvince" id="wProvince" class="form-control" data-live-search="true" data-size="10" required min="1">
             <option value="0">--Chọn tỉnh/thành--</option>
                 @foreach ($province as $item)
                     @if($item['id'] == 27)
@@ -81,7 +81,7 @@
         <div class="form-group" id="wDistrict">
           <label class="col-lg-3 control-label">Quận/Huyện</label>
           <div class="col-lg-5">
-            <select name="selectDistrict" class="form-control" data-live-search="true"> 
+            <select name="selectDistrict" class="form-control" data-live-search="true" required min="0"> 
                 <option value="">--Chọn Tỉnh/Thành trước--</option>
             </select>
           </div>
@@ -90,7 +90,7 @@
         <div class="form-group" id="wWard">
           <label class="col-lg-3 control-label">Xã/Phường/Thị Trấn</label>
           <div class="col-lg-5">
-            <select name="selectWard" class="form-control" data-live-search="true"> 
+            <select name="selectWard" class="form-control" data-live-search="true" required min="0"> 
                 <option value="">--Chọn Quận/Huyện trước--</option>
             </select>
           </div>
@@ -99,21 +99,21 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Địa chỉ</label>
           <div class="col-lg-9">
-            <input name="txtAddress" type="text" class="form-control" placeholder="Input Box">
+            <input name="txtAddress" type="text" class="form-control" required placeholder="Input Box">
           </div>
         </div> 
 
         <div class="form-group">
           <label class="col-lg-3 control-label">Ảnh đại diện</label>
           <div class="col-lg-9">
-            <input name="fImage" type="file">
+            <input name="fImage" type="file" required accept="image/*">
           </div>
         </div>              
 
         <div class="form-group">
           <label class="col-lg-3 control-label">Chi tiết tin</label>
           <div class="col-lg-9">
-            <textarea name="txtDesciption" class="form-control cleditor" rows="3" placeholder="Textarea"></textarea>
+            <textarea name="txtDesciption" class="form-control cleditor" required rows="3" placeholder="Textarea"></textarea>
           </div>
         </div> 
         
@@ -173,7 +173,7 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Ảnh chi tiết</label>
           <div class="col-lg-9">
-            <input name="DetailImage" type="file" multiple>
+            <input name="fImageDetail[]" type="file" multiple accept="image/*">
           </div>
         </div> 
 
@@ -274,9 +274,9 @@
       <div class="padd">
 
         <div class="form-group">
-          <label class="col-lg-3 control-label">Họ tên</label>
+          <label class="col-lg-3 control-label" >Họ tên</label>
           <div class="col-lg-9">
-            <input name="txtUserName" type="text" class="form-control" placeholder="Input Box">
+            <input name="txtUserName" type="text" required class="form-control" placeholder="Input Box">
           </div>
         </div>
 
@@ -290,21 +290,21 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Điện thoại</label>
           <div class="col-lg-9">
-            <input name="txtUserPhone" type="text" class="form-control" placeholder="Input Box">
+            <input name="txtUserPhone" id="phonenumber" pattern="[0][1-9][0-9]{8}" type="txt" required class="form-control" placeholder="Input Box">
           </div>
         </div> 
 
         <div class="form-group">
           <label class="col-lg-3 control-label">Di động *</label>
           <div class="col-lg-9">
-            <input name="txtUserMobile" type="text" class="form-control" placeholder="Input Box">
+          <input name="txtUserMobile" id="mobilephone" pattern="[0]{1}[9][0-9]{8}|[0]{1}[1][0-9]{9}|[+][8][4][9][0-9]{8}|[+][8][4][1][0-9]{9}" type="txt" class="form-control" placeholder="Input Box">
           </div>
         </div> 
 
         <div class="form-group">
           <label class="col-lg-3 control-label">Email</label>
           <div class="col-lg-9">
-            <input name="txtUserEmail" type="text" class="form-control" placeholder="Input Box">
+            <input name="txtUserEmail" type="email" class="form-control" placeholder="Input Box">
           </div>
         </div> 
 
@@ -327,9 +327,9 @@
           <label class="col-lg-3 control-label">Ngày Đăng</label>
           <div class="col-lg-9">
             <div id="dateopen" class="input-append input-group dtpicker">
-                <input name="txtDateOpen" data-format="yyyy-MM-dd" type="text" class="form-control">
+                <input name="txtDateOpen" type="text" required class="form-control">
                 <span class="input-group-addon add-on">
-                    <i data-time-icon="fa fa-times" data-date-icon="fa fa-calendar"></i>
+                    <span class="fa fa-calendar"></span> 
                 </span>
             </div>
           </div>
@@ -338,9 +338,9 @@
           <label class="col-lg-3 control-label">Ngày hết hạn</label>
           <div class="col-lg-9">
             <div id="dateclose" class="input-append input-group dtpicker">
-                <input name="txtDateClose" data-format="yyyy-MM-dd" type="text" class="form-control">
+                <input name="txtDateClose" required type="text" class="form-control">
                 <span class="input-group-addon add-on">
-                    <i data-time-icon="fa fa-times" data-date-icon="fa fa-calendar"></i>
+                  <span class="fa fa-calendar"></span> 
                 </span>
             </div>
           </div>
@@ -387,16 +387,27 @@
 @push('scripts')
 
 <script  type="text/javascript">
-$(function() {
-    $('#dateopen').datetimepicker({
-      pickTime: false
+   $(function () {
+      var day =  new Date();
+      var maxday = new Date(new Date().getTime() + 90*86400000);
+        $('#dateopen').datetimepicker({
+          format: 'DD/MM/YYYY',
+          minDate: day
+        });
+        $('#dateclose').datetimepicker({
+            useCurrent: false,
+            format: 'DD/MM/YYYY',
+            minDate: day
+        });
+        $("#dateopen").on("dp.change", function (e) {
+            $('#dateclose').data("DateTimePicker").minDate(e.date);
+        });
+        $("#dateclose").on("dp.change", function (e) {
+            $('#dateopen').data("DateTimePicker").maxDate(e.date);
+        });
     });
-});
-$(function() {
-    $('#dateclose').datetimepicker({
-      pickTime: false
-    });
-});
+
+
 
  $(document).ready(function(){
 
@@ -409,13 +420,21 @@ $(function() {
             cache: false,
             data: {'type':type},
             success: function (data){
-                var html = '<select class="form-control" name="selectCategory"><option value="">--Chọn danh mục--</option>';
+                var html = '<select class="form-control" required name="selectCategory" title="Hãy chọn 1 danh mục"><option>--Chọn danh mục--</option>';
                 for (var i = 0; i < data.length; i++) {
                     html += '<option value="' + data[i].id + '">'+ data[i].name + '</option>';
                 };
                 html += '</select>';
                 $('#cate').html(html);
-                $('select').selectpicker();
+                //$('select').selectpicker();
+                $("#postProperty").validate({
+                  highlight: function(element) {
+                        $(element).closest('.form-group').addClass('has-error');
+                    },
+                    unhighlight: function(element) {
+                        $(element).closest('.form-group').removeClass('has-error');
+                    }, 
+                });
             }
         }); 
     });
@@ -429,13 +448,21 @@ $(function() {
             cache: false,
             data: {'type':type},
             success: function (data){
-                var html = '<select class="form-control" name="selectCategory"><option value="">--Chọn danh mục--</option>';
+                var html = '<select class="form-control" required name="selectCategory"><option>--Chọn danh mục--</option>';
                 for (var i = 0; i < data.length; i++) {
                     html += '<option value="' + data[i].id + '">'+ data[i].name + '</option>';
                 };
                 html += '</select>';
                 $('#cate').html(html);
-                $('select').selectpicker();
+                //$('select').selectpicker();
+                $("#postProperty").validate({
+                  highlight: function(element) {
+                        $(element).closest('.form-group').addClass('has-error');
+                    },
+                    unhighlight: function(element) {
+                        $(element).closest('.form-group').removeClass('has-error');
+                    }, 
+                });
             }
         }); 
     };
@@ -454,13 +481,21 @@ $(function() {
             cache: false,
             data: {"province_id":idProvince},
             success: function (data){
-               var html = '<label class="col-lg-3 control-label">Quận/Huyện</label><div class="col-lg-5"><select name="selectDistrict" class="form-control" id="District" required data-live-search="true" data-size="10"><option value="">--Chọn quận/huyện--</option>';
+               var html = '<label class="col-lg-3 control-label">Quận/Huyện</label><div class="col-lg-5"><select name="selectDistrict" class="form-control" id="District" data-live-search="true" required data-size="10"><option value="-1">--Chọn quận/huyện--</option>';
                for(var i=0; i<data.length; i++) {
                     html += '<option value="' + data[i].id + '">' + data[i].type +' '+ data[i].name + '</option>';
                 }
                 html +='</select></div>';
                 $('#wDistrict').html(html);
                 $('select').selectpicker();
+                $("#postProperty").validate({
+                  highlight: function(element) {
+                        $(element).closest('.form-group').addClass('has-error');
+                    },
+                    unhighlight: function(element) {
+                        $(element).closest('.form-group').removeClass('has-error');
+                    }, 
+                });
             }
         });
     }
@@ -479,13 +514,21 @@ $(function() {
             cache: false,
             data: {"province_id":idProvince},
             success: function (data){
-               var html = '<label class="col-lg-3 control-label">Quận/Huyện</label><div class="col-lg-5"><select name="selectDistrict" class="form-control" id="District" required data-live-search="true" data-size="10"><option value="">--Chọn quận/huyện--</option>';
+               var html = '<label class="col-lg-3 control-label">Quận/Huyện</label><div class="col-lg-5"><select name="selectDistrict" class="form-control" id="District" data-live-search="true" required data-size="10"><option value="-1">--Chọn quận/huyện--</option>';
                for(var i=0; i<data.length; i++) {
                     html += '<option value="' + data[i].id + '">' + data[i].type +' '+ data[i].name + '</option>';
                 }
                 html +='</select></div>';
                 $('#wDistrict').html(html);
                 $('select').selectpicker();
+                $("#postProperty").validate({
+                  highlight: function(element) {
+                        $(element).closest('.form-group').addClass('has-error');
+                    },
+                    unhighlight: function(element) {
+                        $(element).closest('.form-group').removeClass('has-error');
+                    }, 
+                });
             }
         });
     });
@@ -501,18 +544,34 @@ $(function() {
             cache: false,
             data: {"district_id":idDistrict},
             success: function (data){
-               var html = '<label class="col-lg-3 control-label">Xã/Phường/Thị Trấn</label><div class="col-lg-5"><select name="selectWard" class="form-control" required data-live-search="true" data-size="10"><option value="">--Chọn Xã/Phường/Thị Trấn--</option>';
+               var html = '<label class="col-lg-3 control-label">Xã/Phường/Thị Trấn</label><div class="col-lg-5"><select name="selectWard" class="form-control" data-live-search="true" required data-size="10"><option value="-1">--Chọn Xã/Phường/Thị Trấn--</option>';
                for(var i=0; i<data.length; i++) {
                     html += '<option value="' + data[i].id + '">' + data[i].type +' '+ data[i].name + '</option>';
                 }
                 html +='</select>';
                 $('#wWard').html(html);
                 $('select').selectpicker();
+                $("#postProperty").validate({
+                  highlight: function(element) {
+                        $(element).closest('.form-group').addClass('has-error');
+                    },
+                    unhighlight: function(element) {
+                        $(element).closest('.form-group').removeClass('has-error');
+                    }, 
+                });
             }
         });
     });
 
 
+});
+$("#postProperty").validate({
+  highlight: function(element) {
+        $(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function(element) {
+        $(element).closest('.form-group').removeClass('has-error');
+    }, 
 });
  </script>
 

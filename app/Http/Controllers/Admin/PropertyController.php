@@ -8,6 +8,7 @@ use App\Http\Requests\PropertyRequest;
 use App\Property;
 use App\Province;
 use App\Category;
+use App\PropertyImages;
 use DB;
 use Datatables;
 use Input;
@@ -35,7 +36,7 @@ class PropertyController extends Controller
         //$property = DB::table('property')->leftJoin('categories','property.category','=','categories.id')->select('property.id as id','property.name as name','property.user_name as username','property.status as status','property.created_at as created_at','categories.name as catename');
         return Datatables::of($property) 
             ->addColumn('action', function ($name) {
-                return '<a href="property/edit/'.$name->id.'" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Edit</a><a href="property/delete/'.$name->id.'" onclick="return xacnhanxoa()" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></i></a> ';
+                return '<a href="property/edit/'.$name->id.'" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Edit</a><a href="delete/'.$name->id.'" onclick="return xacnhanxoa()" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></i></a> ';
             })
             ->editColumn('type',function($name){
                 if ($name->type == 1) {
@@ -88,7 +89,7 @@ class PropertyController extends Controller
     {
         $property = new Property();   
         $str = PhatSinhRandomKey();
-        $file_name = substr(changeTitle($request->txtName),0,150) .'-iFly-main-'.$str .Request::file('fImage')->getClientOriginalName();
+        $file_name = substr(changeTitle($request->txtName),0,200) .'-iFly-main-'.$str;
         
         $property->name              =$request->txtName;
         $property->alias             =changeTitle($request->txtName);
@@ -131,6 +132,28 @@ class PropertyController extends Controller
         $property_id = $property->id;
         $destinationPath = 'uploads/property/'.$property_id;
         $request->file('fImage')->move($destinationPath,$file_name);
+
+        //Immage Detail
+        if (Input::hasFile('fImageDetail')) {
+            
+            $files = Input::file('fImageDetail');
+             
+            foreach ($files as $file) {
+                $str = PhatSinhRandomKey();
+                $filename = substr(changeTitle($request->txtName),0,200) .'-iFly-detail-'.$str;
+
+                $property_images = new PropertyImages();
+                if (isset($file)) {
+                    $property_images->image = $filename;
+                    $property_images->property_id = $property_id;
+                    $file->move($destinationPath, $filename);
+                }
+                $property_images->save();
+            }
+            
+        } 
+        //.Immage Detail
+
 
         return redirect('admin/property/list')->with(['flash_level'=>'success','flash_message'=>'Sucssess !! Complete Add Property']);
     }
@@ -177,6 +200,11 @@ class PropertyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        File::deleteDirectory('uploads/property/'.$id); 
+        DB::table('property_images')->select('*')->where('property_id','=', $id)->delete();
+        Property::find($id)->delete($id);
+
+
+        return redirect('admin/property/list')->with(['flash_level'=>'success','flash_message'=>'Sucssess !! delete complete']);
     }
 }

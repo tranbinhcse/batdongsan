@@ -11,8 +11,8 @@
   <meta name="author" content="">
 
 
-  <!-- Stylesheets -->
-  <link href="{{ url('public/macadmin/css/bootstrap.min.css') }}" rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <!-- Font awesome icon -->
   <link rel="stylesheet" href="{{ url('public/macadmin/css/font-awesome.min.css') }}"> 
   <!-- jQuery UI -->
@@ -49,7 +49,7 @@
 
 <body>
 
-<div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
+<div class="navbar navbar-static-top bs-docs-nav" role="banner">
   
     <div class="conjtainer">
       <!-- Menu button for smallar screens -->
@@ -58,7 +58,7 @@
             <span>Menu</span>
           </button>
           <!-- Site name for smallar screens -->
-          <a href="index.html" class="navbar-brand hidden-lg">MacBeth</a>
+          <a href="index.html" class="navbar-brand">MacBeth</a>
         </div>
       
       
@@ -158,188 +158,7 @@
 
 
 <!-- Header starts -->
-  <header>
-    <div class="container">
-      <div class="row">
-
-        <!-- Logo section -->
-        <div class="col-md-4">
-          <!-- Logo. -->
-          <div class="logo">
-            <h1><a href="#">Mac<span class="bold">Admin</span></a></h1>
-            <p class="meta">something goes in meta area</p>
-          </div>
-          <!-- Logo ends -->
-        </div>
-
-        <!-- Button section -->
-        <div class="col-md-4">
-
-          <!-- Buttons -->
-          <ul class="nav nav-pills">
-
-            <!-- Comment button with number of latest comments count -->
-            <li class="dropdown dropdown-big">
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                <i class="fa fa-comments"></i> Chats <span   class="label label-info">6</span> 
-              </a>
-
-                <ul class="dropdown-menu">
-                  <li>
-                    <!-- Heading - h5 -->
-                    <h5><i class="fa fa-comments"></i> Chats</h5>
-                    <!-- Use hr tag to add border -->
-                    <hr />
-                  </li>
-                  <li>
-                    <!-- List item heading h6 -->
-                    <h6><a href="#">Hi :)</a> <span class="label label-warning pull-right">10:42</span></h6>
-                    <div class="clearfix"></div>
-                    <hr />
-                  </li>
-                  <li>
-                    <h6><a href="#">How are you?</a> <span class="label label-warning pull-right">20:42</span></h6>
-                    <div class="clearfix"></div>
-                    <hr />
-                  </li>
-                  <li>
-                    <h6><a href="#">What are you doing?</a> <span class="label label-warning pull-right">14:42</span></h6>
-                    <div class="clearfix"></div>
-                    <hr />
-                  </li>                  
-                  <li>
-                    <div class="drop-foot">
-                      <a href="#">View All</a>
-                    </div>
-                  </li>                                    
-                </ul>
-            </li>
-
-            <!-- Message button with number of latest messages count-->
-            <li class="dropdown dropdown-big">
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                <i class="fa fa-envelope"></i> Inbox <span class="label label-primary">6</span> 
-              </a>
-
-                <ul class="dropdown-menu">
-                  <li>
-                    <!-- Heading - h5 -->
-                    <h5><i class="fa fa-envelope"></i> Messages</h5>
-                    <!-- Use hr tag to add border -->
-                    <hr />
-                  </li>
-                  <li>
-                    <!-- List item heading h6 -->
-                    <h6><a href="#">Hello how are you?</a></h6>
-                    <!-- List item para -->
-                    <p>Quisque eu consectetur erat eget  semper...</p>
-                    <hr />
-                  </li>
-                  <li>
-                    <h6><a href="#">Today is wonderful?</a></h6>
-                    <p>Quisque eu consectetur erat eget  semper...</p>
-                    <hr />
-                  </li>
-                  <li>
-                    <div class="drop-foot">
-                      <a href="#">View All</a>
-                    </div>
-                  </li>                                    
-                </ul>
-            </li>
-
-            <!-- Members button with number of latest members count -->
-            <li class="dropdown dropdown-big">
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                <i class="fa fa-user"></i> Users <span   class="label label-success">6</span> 
-              </a>
-
-                <ul class="dropdown-menu">
-                  <li>
-                    <!-- Heading - h5 -->
-                    <h5><i class="fa fa-user"></i> Users</h5>
-                    <!-- Use hr tag to add border -->
-                    <hr />
-                  </li>
-                  <li>
-                    <!-- List item heading h6-->
-                    <h6><a href="#">Ravi Kumar</a> <span class="label label-warning pull-right">Free</span></h6>
-                    <div class="clearfix"></div>
-                    <hr />
-                  </li>
-                  <li>
-                    <h6><a href="#">Balaji</a> <span class="label label-important pull-right">Premium</span></h6>
-                    <div class="clearfix"></div>
-                    <hr />
-                  </li>
-                  <li>
-                    <h6><a href="#">Kumarasamy</a> <span class="label label-warning pull-right">Free</span></h6>
-                    <div class="clearfix"></div>
-                    <hr />
-                  </li>                  
-                  <li>
-                    <div class="drop-foot">
-                      <a href="#">View All</a>
-                    </div>
-                  </li>                                    
-                </ul>
-            </li> 
-
-          </ul>
-
-        </div>
-
-        <!-- Data section -->
-
-        <div class="col-md-4">
-          <div class="header-data">
-
-            <!-- Traffic data -->
-            <div class="hdata">
-              <div class="mcol-left">
-                <!-- Icon with red background -->
-                <i class="fa fa-signal bred"></i> 
-              </div>
-              <div class="mcol-right">
-                <!-- Number of visitors -->
-                <p><a href="#">7000</a> <em>visits</em></p>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-
-            <!-- Members data -->
-            <div class="hdata">
-              <div class="mcol-left">
-                <!-- Icon with blue background -->
-                <i class="fa fa-user bblue"></i> 
-              </div>
-              <div class="mcol-right">
-                <!-- Number of visitors -->
-                <p><a href="#">3000</a> <em>users</em></p>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-
-            <!-- revenue data -->
-            <div class="hdata">
-              <div class="mcol-left">
-                <!-- Icon with green background -->
-                <i class="fa fa-money bgreen"></i> 
-              </div>
-              <div class="mcol-right">
-                <!-- Number of visitors -->
-                <p><a href="#">5000</a><em>orders</em></p>
-              </div>
-              <div class="clearfix"></div>
-            </div>                        
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </header>
-
+  
 <!-- Header ends -->
 
 <!-- Main content starts -->
@@ -462,6 +281,10 @@
 <script src="{{ url('public/macadmin/js/jquery.slimscroll.min.js') }}"></script> <!-- jQuery Slim Scroll -->
 <script src="{{ url('public/macadmin/js/jquery.dataTables.min.js') }}"></script> <!-- Data tables -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/js/bootstrap-select.min.js"></script><!-- Bootstrap Select -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/js/bootstrap-select.min.js"></script><!-- Bootstrap Select -->
+<script src="{{ url('public/macadmin/js/jquery.validate.min.js') }}"></script><!-- Validation -->
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+<script src="{{ url('public/macadmin/js/localization/messages_vi.min.js') }}"></script><!-- Validation Lang -->
 
 <!-- jQuery Flot -->
 <script src="{{ url('public/macadmin/js/excanvas.min.js') }}"></script>

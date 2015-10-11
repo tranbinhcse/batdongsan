@@ -47,7 +47,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth', 'namespace' => 'Admin'],fu
 		Route::get('edit/{id}', ['as' => 'admin.property.getEdit', 'uses' => 'PropertyController@edit']);
 		Route::post('edit/{id}', ['as' => 'admin.property.postEdit', 'uses' => 'PropertyController@update']);
 
-		Route::post('delete/{id}', ['as' => 'admin.property.postAdd', 'uses' => 'PropertyController@destroy']);
+		Route::get('delete/{id}', ['as' => 'admin.property.postAdd', 'uses' => 'PropertyController@destroy']);
 
 		Route::get('cateproprty/{type}', ['as' => 'admin.property.getCateProperty', 'uses' => 'PropertyController@selectCate']);
 
