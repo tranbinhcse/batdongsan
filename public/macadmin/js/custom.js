@@ -363,6 +363,17 @@ $(document).ready(function() {
 
 
 
-// Bootstrap Select
+/* bootstrap select */
+        if($("select").length > 0)
+            $("select").selectpicker();        
+        /* ./bootstra select */
 
-$('select').selectpicker();
+ 
+function xacnhanxoa () {
+    if (window.confirm("Bạn chắc chắn muốn xóa không?")) {
+        return true;
+    }
+    return false;
+}
+
+ 

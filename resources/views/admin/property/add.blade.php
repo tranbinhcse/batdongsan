@@ -290,14 +290,14 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Điện thoại</label>
           <div class="col-lg-9">
-            <input name="txtUserPhone" id="phonenumber" pattern="[0][1-9][0-9]{8}" type="txt" required class="form-control" placeholder="Input Box">
+            <input name="txtUserPhone" id="phonenumber" pattern="[0][1-9][0-9]{8}" type="txt"  class="form-control" placeholder="Input Box">
           </div>
         </div> 
 
         <div class="form-group">
           <label class="col-lg-3 control-label">Di động *</label>
           <div class="col-lg-9">
-          <input name="txtUserMobile" id="mobilephone" pattern="[0]{1}[9][0-9]{8}|[0]{1}[1][0-9]{9}|[+][8][4][9][0-9]{8}|[+][8][4][1][0-9]{9}" type="txt" class="form-control" placeholder="Input Box">
+          <input name="txtUserMobile" id="mobilephone" required pattern="[0]{1}[9][0-9]{8}|[0]{1}[1][0-9]{9}|[+][8][4][9][0-9]{8}|[+][8][4][1][0-9]{9}" type="txt" class="form-control" placeholder="Input Box">
           </div>
         </div> 
 
@@ -420,13 +420,13 @@
             cache: false,
             data: {'type':type},
             success: function (data){
-                var html = '<select class="form-control" required name="selectCategory" title="Hãy chọn 1 danh mục"><option>--Chọn danh mục--</option>';
+                var html = '<select class="form-control" required name="selectCategory" ><option value="">--Chọn danh mục--</option>';
                 for (var i = 0; i < data.length; i++) {
                     html += '<option value="' + data[i].id + '">'+ data[i].name + '</option>';
                 };
                 html += '</select>';
                 $('#cate').html(html);
-                //$('select').selectpicker();
+                $('select').selectpicker();
                 $("#postProperty").validate({
                   highlight: function(element) {
                         $(element).closest('.form-group').addClass('has-error');
@@ -434,6 +434,12 @@
                     unhighlight: function(element) {
                         $(element).closest('.form-group').removeClass('has-error');
                     }, 
+                    rules:{
+                      selectCategory:{
+                        required: true,
+                        min:1
+                      },
+                    }
                 });
             }
         }); 
@@ -448,13 +454,13 @@
             cache: false,
             data: {'type':type},
             success: function (data){
-                var html = '<select class="form-control" required name="selectCategory"><option>--Chọn danh mục--</option>';
+              var html = '<select class="form-control" required name="selectCategory" aria-required="true"><option value="">--Chọn danh mục--</option>';
                 for (var i = 0; i < data.length; i++) {
                     html += '<option value="' + data[i].id + '">'+ data[i].name + '</option>';
                 };
                 html += '</select>';
                 $('#cate').html(html);
-                //$('select').selectpicker();
+                $('select').selectpicker();
                 $("#postProperty").validate({
                   highlight: function(element) {
                         $(element).closest('.form-group').addClass('has-error');
@@ -481,7 +487,7 @@
             cache: false,
             data: {"province_id":idProvince},
             success: function (data){
-               var html = '<label class="col-lg-3 control-label">Quận/Huyện</label><div class="col-lg-5"><select name="selectDistrict" class="form-control" id="District" data-live-search="true" required data-size="10"><option value="-1">--Chọn quận/huyện--</option>';
+               var html = '<label class="col-lg-3 control-label">Quận/Huyện</label><div class="col-lg-5"><select name="selectDistrict" class="form-control" id="District" data-live-search="true" required data-size="10"><option value="">--Chọn quận/huyện--</option>';
                for(var i=0; i<data.length; i++) {
                     html += '<option value="' + data[i].id + '">' + data[i].type +' '+ data[i].name + '</option>';
                 }
@@ -514,7 +520,7 @@
             cache: false,
             data: {"province_id":idProvince},
             success: function (data){
-               var html = '<label class="col-lg-3 control-label">Quận/Huyện</label><div class="col-lg-5"><select name="selectDistrict" class="form-control" id="District" data-live-search="true" required data-size="10"><option value="-1">--Chọn quận/huyện--</option>';
+               var html = '<label class="col-lg-3 control-label">Quận/Huyện</label><div class="col-lg-5"><select name="selectDistrict" class="form-control" id="District" data-live-search="true" required data-size="10"><option value="">--Chọn quận/huyện--</option>';
                for(var i=0; i<data.length; i++) {
                     html += '<option value="' + data[i].id + '">' + data[i].type +' '+ data[i].name + '</option>';
                 }
@@ -544,7 +550,7 @@
             cache: false,
             data: {"district_id":idDistrict},
             success: function (data){
-               var html = '<label class="col-lg-3 control-label">Xã/Phường/Thị Trấn</label><div class="col-lg-5"><select name="selectWard" class="form-control" data-live-search="true" required data-size="10"><option value="-1">--Chọn Xã/Phường/Thị Trấn--</option>';
+               var html = '<label class="col-lg-3 control-label">Xã/Phường/Thị Trấn</label><div class="col-lg-5"><select name="selectWard" class="form-control" data-live-search="true" required data-size="10"><option value="">--Chọn Xã/Phường/Thị Trấn--</option>';
                for(var i=0; i<data.length; i++) {
                     html += '<option value="' + data[i].id + '">' + data[i].type +' '+ data[i].name + '</option>';
                 }
@@ -566,6 +572,14 @@
 
 });
 $("#postProperty").validate({
+  errorClass:"has-error",
+  validClass:"has-success",
+  errorElement:"span",
+  ignore: [],
+  errorPlacement: function(error,element){
+            $(element).before(error);                    
+            $(element).parents(".form-group").addClass("has-error");
+        },
   highlight: function(element) {
         $(element).closest('.form-group').addClass('has-error');
     },
@@ -573,6 +587,8 @@ $("#postProperty").validate({
         $(element).closest('.form-group').removeClass('has-error');
     }, 
 });
+ 
+
  </script>
 
 @include("admin.blocks.error")

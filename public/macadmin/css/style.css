@@ -1929,3 +1929,9 @@ footer .copy{
 {
     background: url(../img/delete.gif) 0 0;
 }
+
+
+
+.dtpicker .has-error{
+	display: none !important;
+}
