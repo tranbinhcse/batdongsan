@@ -32,7 +32,7 @@
             <div class="form-group">
               <label class="col-lg-3 control-label">Mô tả ngắn</label>
               <div class="col-lg-9">
-                <textarea class="form-control" rows="2" name="txtDescription" placeholder="Textarea">{!! old('txtDescription',isset($data) ? $data['desciption'] : null) !!}</textarea>
+                <textarea class="form-control" rows="2" name="txtDescription" placeholder="Textarea">{!! old('txtDescription',isset($data) ? $data['description'] : null) !!}</textarea>
               </div>
             </div>    
 

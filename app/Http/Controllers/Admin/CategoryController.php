@@ -40,7 +40,7 @@ class CategoryController extends Controller {
 		$cate->parent_id 	= $request->selectparent;
 		$cate->keywords 	= $request ->txtKeywords;
 		$cate->metakey 	= $request ->txtMeta;
-		$cate->desciption 	= $request ->txtDescription;
+		$cate->description 	= $request ->txtDescription;
 		$cate->remember_token 	= $request ->_token;
 		$cate -> save();
 		return redirect()->route('admin.cate.list')->with(['flash_level'=>'success','flash_message'=>'Sucssess !! Complete update category']);
@@ -64,7 +64,7 @@ class CategoryController extends Controller {
 		$cate->type 	= $request->optionsType;
 		$cate->keywords 	= $request ->tags;
 		$cate->metakey 	= $request ->txtMeta;
-		$cate->desciption 	= $request ->txtDescription;
+		$cate->description 	= $request ->txtDescription;
 		$cate->remember_token 	= $request ->_token;
 		$cate -> save();
 		return redirect()->route('admin.cate.list')->with(['flash_level'=>'success','flash_message'=>'Sucssess !! Complete add category']);

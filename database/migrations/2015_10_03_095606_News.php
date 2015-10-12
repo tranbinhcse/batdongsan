@@ -19,7 +19,7 @@ class News extends Migration
             $table->string("alias");
             $table->integer("category")->nullable();
             $table->string("image")->nullable();
-            $table->mediumText("desciption")->nullable();
+            $table->mediumText("description")->nullable();
             $table->string("metakey")->nullable();
             $table->string("tags")->nullable();
             $table->rememberToken();

@@ -113,7 +113,7 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Chi tiết tin</label>
           <div class="col-lg-9">
-            <textarea name="txtDesciption" class="form-control cleditor" required rows="3" placeholder="Textarea"></textarea>
+            <textarea name="txtDescription" class="form-control cleditor" required rows="3" placeholder="Textarea"></textarea>
           </div>
         </div> 
         

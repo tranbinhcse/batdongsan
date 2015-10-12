@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration {
 			$table->string('name');
 			$table->string('alias');
 			$table->integer('parent_id');
-			$table->string('desciption');
+			$table->string('description');
 			$table->string('keywords');
 			$table->rememberToken();
 			$table->timestamps();

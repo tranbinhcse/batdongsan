@@ -5,6 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model {
 
 	protected $table = 'categories';
-	protected $fillable = ['name', 'alias', 'parent_id', 'desciption', 'keywords'];
+	protected $fillable = ['name', 'alias', 'parent_id', 'description', 'keywords'];
 	protected $hidden = ['remember_token'];
 }

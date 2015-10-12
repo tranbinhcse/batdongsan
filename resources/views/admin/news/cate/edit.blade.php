@@ -38,7 +38,7 @@
         <p>Super Simple WYSIWYG Editor on Bootstrap</p>
     </div>
  
-    <textarea class="form-control summernote" rows="3" name="txtDescription">{!! old('txtDescription',isset($data) ? $data['desciption'] : null) !!}</textarea>
+    <textarea class="form-control summernote" rows="3" name="txtDescription">{!! old('txtDescription',isset($data) ? $data['description'] : null) !!}</textarea>
 
     <div class="col-md-12">                        
         <div class="form-group">

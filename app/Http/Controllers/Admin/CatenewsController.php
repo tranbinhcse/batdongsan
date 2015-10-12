@@ -41,7 +41,7 @@ class CatenewsController extends Controller
         $cate->parent_id    = $request->selectparent;
         $cate->keywords     = $request ->txtKeywords;
         $cate->metakey  = $request ->txtMeta;
-        $cate->desciption   = $request ->txtDescription;
+        $cate->description   = $request ->txtDescription;
         $cate->remember_token   = $request ->_token;
         $cate -> save();
         return redirect()->route('admin.news.cate.list')->with(['flash_level'=>'success','flash_message'=>'Sucssess !! Complete update category']);
@@ -65,7 +65,7 @@ class CatenewsController extends Controller
         $cate->parent_id    = $request->selectparent;
         $cate->keywords     = $request ->txtKeywords;
         $cate->metakey  = $request ->txtMeta;
-        $cate->desciption   = $request ->txtDescription;
+        $cate->description   = $request ->txtDescription;
         $cate->remember_token   = $request ->_token;
         $cate -> save();
         return redirect()->route('admin.news.cate.list')->with(['flash_level'=>'success','flash_message'=>'Sucssess !! Complete add category']);

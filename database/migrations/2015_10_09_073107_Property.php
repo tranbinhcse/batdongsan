@@ -45,7 +45,7 @@ class Property extends Migration
             $table->date("date_close")->nullable();
             $table->date("date_vip")->nullable();
 
-            $table->mediumText("desciption")->nullable();
+            $table->mediumText("description")->nullable();
 
             $table->string("metakey")->nullable();
             $table->string("tags")->nullable();

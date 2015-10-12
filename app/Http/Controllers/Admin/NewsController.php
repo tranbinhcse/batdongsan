@@ -53,7 +53,7 @@ class NewsController extends Controller {
 			
 			$news->name 			=$request->txtName;
 			$news->alias 			=changeTitle($request->txtName);
-			$news->desciption 		=$request->txtdesciption;
+			$news->description 		=$request->txtDescription;
 			$news->catenews_id 		=$request->selectcate;
 			$news->projectid 		=$request->selectproject;
 			$news->metakey 			=$request->txtMetakey;
@@ -111,7 +111,7 @@ class NewsController extends Controller {
 		$news->alias 			=changeTitle($request->txtName);
 		$news->catenews_id 		=$request->selectcate;
 		$news->projectid 		=$request->selectproject;
-		$news->desciption 		=$request->txtdesciption;
+		$news->description 		=$request->txtDescription;
 		$news->metakey 			=$request->txtMetakey;
 		$news->tags 			=$request->txtTags;
 		$news->remember_token 	=$request->_token;

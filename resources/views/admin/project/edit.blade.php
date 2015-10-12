@@ -185,7 +185,7 @@
     <div class="page-subtitle">
         <h3>Mô tả chi tiết</h3> 
     </div>
-    <textarea name="txtdesciption" class="summernote">{!! old('txtdesciption',isset($data) ? $data['desciption'] : null)!!}</textarea>
+    <textarea name="txtDescription" class="summernote">{!! old('txtDescription',isset($data) ? $data['description'] : null)!!}</textarea>
  
  
 
@@ -263,7 +263,7 @@
             cache: false,
             data: {"district_id":idDistrict},
             success: function (data){
-               var html = '<label>Xã/Phường/Thị Trấn</label><select name="selectWard" class="form-control selectpicker" required min="01" data-live-search="true" title="Vui lòng chọn một tỉnh"><option value="0">--Chọn quận huyện--</option>';
+               var html = '<label>Xã/Phường/Thị Trấn</label><select name="selectWard" class="form-control selectpicker" required min="01" data-live-search="true"><option value="0">--Chọn quận huyện--</option>';
                for(var i=0; i<data.length; i++) {
                     html += '<option value="' + data[i].id + '">' + data[i].type +' '+ data[i].name + '</option>';
                 }
@@ -274,13 +274,10 @@
         });
     });
 
-    
-
-     ////
-    function getParetProvince () {
+    function getParentProvince () {
        var url = '{!! route('admin.location.getDistrictByProvince') !!}/'; 
         var e = document.getElementById("wProvince");
-        var idProvince = e.options[e.selectedIndex].value;
+        var idProvince = <?php if (isset($jData) && isset($jData->province_id)) { echo $jData->province_id; } else { echo '0';}  ?>;
          
         $.ajax({
             url: url + idProvince,
@@ -288,8 +285,8 @@
             cache: false,
             data: {"province_id":idProvince},
             success: function (data){
-                var html = '<label>Quận Huyện</label><select id="District" name="selectDistrict" class="form-control selectpicker" required min="01" data-live-search="true" title="Vui lòng chọn một tỉnh"><option value="0">--Chọn quận huyện--</option>';
-                var district_id = <?php if (isset($jData)) { echo $jData->district_id; } else { echo '0';}?>;
+                var html = '<label>Quận Huyện</label><select id="District" name="selectDistrict" class="form-control selectpicker" required min="01" data-live-search="true"><option value="0">--Chọn quận huyện--</option>';
+                var district_id = <?php if (isset($jData) && isset($jData->district_id)) { echo $jData->district_id; } else { echo '0';}?>;
                 for(var i=0; i<data.length; i++) {
                     if (district_id == data[i].id) {
                         html += '<option selected="selected" value="' + data[i].id + '">' + data[i].type +' '+ data[i].name + '</option>';
@@ -304,12 +301,11 @@
             }
         }); 
     }
-    $('#wProvince').load = getParetProvince();
-     /***********************************************************************************************************************************/
-     ////
+    
+
     function getParentDistrict () {
        var url = '{!! route('admin.location.getWardByDistrict') !!}/'; 
-         var idDistrict = <?php echo $jData->district_id; ?>;
+         var idDistrict = <?php if (isset($jData) && isset($jData->district_id)) { echo $jData->district_id; } else { echo '0';}  ?>;
          
         $.ajax({
             url: url + idDistrict,
@@ -317,8 +313,8 @@
             cache: false,
             data: {"district_id":idDistrict},
             success: function (data){
-                var html = '<label>Xã/Phường/Thị trấn</label><select id="District" name="selectDistrict" class="form-control selectpicker" required min="01" data-live-search="true" title="Vui lòng chọn một tỉnh"><option value="0">--Chọn quận huyện--</option>';
-                var ward_id = <?php if (isset($jData)) { echo $jData->ward_id; } else { echo '0';}?>;
+                var html = '<label>Xã/Phường/Thị trấn</label><select id="District" name="selectDistrict" class="form-control selectpicker" required min="01" data-live-search="true"><option value="0">--Chọn quận huyện--</option>';
+                var ward_id = <?php if (isset($jData) && isset($jData->ward_id)) { echo $jData->ward_id; } else { echo '0';}?>;
                 for(var i=0; i<data.length; i++) {
                     if (ward_id == data[i].id) {
                         html += '<option selected="selected" value="' + data[i].id + '">' + data[i].type +' '+ data[i].name + '</option>';
@@ -334,6 +330,38 @@
         }); 
     }
     $('#wDistrict').load = getParentDistrict();
+    $('#wProvince').load = getParentProvince();
+
+});
+
+
+
+
+//Ajax Xoa hình ảnh project
+
+
+$(document).ready(function(){
+    $('a#del_img').on('click',function () {
+        var url = '{!!URL("admin/project/delimg/")!!}/';
+        var _token = $("form[name='frmeditproject'").find("input[name='_token']").val();
+        var idHinh = $(this).parent().find("img").attr("idHinh");
+        var img = $(this).parent().find("img").attr("src");
+        var rid = $(this).parent().find("img").attr("id");
+        //alert(rid);
+        $.ajax({
+            url: url + idHinh,
+            type: "GET",
+            cache: false,
+            data: {"_token":_token,"idHinh":rid,"urlHinh":img},
+            success: function (data){
+                if (data == 'ok') {
+                    $("#" + idHinh).remove();
+                }else{
+                    alert (data)
+                };
+            }
+        });
+    });
 });
  </script>
 @endpush

@@ -55,7 +55,7 @@
          <input name="fImage" type="file" class="form-control" required  value=""/>
     <div class="row margin-top-20"> 
         <h3>Bài viết chi tiết</h3>
-        <textarea name="txtdesciption" class="summernote"></textarea>
+        <textarea name="txtDescription" class="summernote"></textarea>
     </div>  
      
      <div class="col-md-12">                        

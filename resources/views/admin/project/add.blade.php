@@ -172,7 +172,7 @@
     <div class="page-subtitle">
         <h3>Mô tả chi tiết</h3> 
     </div>
-    <textarea name="txtdesciption" class="summernote"></textarea>
+    <textarea name="txtDescription" class="summernote"></textarea>
  
  
 

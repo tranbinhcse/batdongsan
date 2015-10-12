@@ -52,7 +52,7 @@ class ProjectController extends Controller {
 			$project->sphong 			=$request->txtSphong;
 			$project->toilet 			=$request->txtToilet;
 			$project->huong 			=$request->txtHuong;
-			$project->desciption 		=$request->txtdesciption;
+			$project->description 		=$request->txtDescription;
 			$project->metakey 			=$request->txtMetakey;
 			$project->image 			=$file_name;
 			$project->tags 				=$request->txtTags;
@@ -116,7 +116,7 @@ class ProjectController extends Controller {
 		$project->sphong 			=$request->txtSphong;
 		$project->toilet 			=$request->txtToilet;
 		$project->huong 			=$request->txtHuong;
-		$project->desciption 		=$request->txtdesciption;
+		$project->description 		=$request->txtDescription;
 		$project->metakey 			=$request->txtMetakey;
 		$project->tags 				=$request->txtTags;
 		$project->remember_token 	=$request->_token;
