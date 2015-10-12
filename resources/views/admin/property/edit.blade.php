@@ -100,9 +100,21 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Địa chỉ</label>
           <div class="col-lg-9">
-            <input name="txtAddress" type="text" class="form-control" required placeholder="Địa chỉ bất động sản" value="{!! old('txtAddress',isset($data) ? $data['address'] : null)!!}">
+            <input name="txtAddress" id="address" type="text" class="form-control" required placeholder="Địa chỉ bất động sản" value="{!! old('txtAddress',isset($data) ? $data['address'] : null)!!}">
           </div>
         </div> 
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Bản đồ</label>
+          <div class="col-lg-9">
+          <span>Hãy kéo và thả neo đúng vào địa chỉ của bạn</span> 
+            <input type="hidden" id="us2-radius"/>
+            <div id="us2" style="width: 100%; height: 300px;"></div>     
+            <input name="txtLat" type="hidden" id="us2-lat"/>
+            <input name="txtLon" type="hidden" id="us2-lon"/>
+          </div>
+        </div> 
+         
 
         <div class="form-group">
           <label class="col-lg-3 control-label">Ảnh đại diện</label>
@@ -315,9 +327,6 @@
     </div> 
   </div>
 
-</div> 
-<div class="col-lg-12">
-
   <div class="widget wgreen">
     <div class="widget-head">
       <div class="pull-left">Trạng thái tin</div> 
@@ -370,7 +379,7 @@
 
         
           <div class="form-group">
-            <div class="col-lg-12 text-right">
+            <div class="col-lg-12 text-center">
               <button class="btn btn-lg btn-primary" type="submit">Lưu Lại</button>
               <button type="button" class="btn btn-lg btn-danger">Xóa</button>
             </div>
@@ -380,8 +389,9 @@
 
       </div>
     </div>
-    
-  </div>
+
+</div> 
+ 
 </div> 
 </form>
 </div>
@@ -560,7 +570,7 @@ function defaultWard() {
 
 $('#wProvince').load = defaultDistrict();
 $('#wProvince').load = defaultWard();
- 
+
 $("#postProperty").validate({
   errorClass:"has-error",
   validClass:"has-success",
@@ -579,6 +589,20 @@ $("#postProperty").validate({
 });
  
 
+ 
+var lat = {!! isset($data) ? $data['lat'] : null !!};
+var lon = {!! isset($data) ? $data['lon'] : null !!};
+$('#us2').locationpicker({ 
+  location: {latitude: lat, longitude: lon}, 
+  radius: 0,
+  inputBinding: {
+        latitudeInput: $('#us2-lat'),
+        longitudeInput: $('#us2-lon'),
+        radiusInput: $('#us2-radius'),
+        locationNameInput: $('#address')
+    },
+    enableAutocomplete: true
+  });
  </script>
 
 @include("admin.blocks.error")

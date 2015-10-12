@@ -46,6 +46,8 @@ class ProjectController extends Controller {
 			$project->district 			=$request->selectDistrict;
 			$project->ward 				=$request->selectWard;
 			$project->address 			=$request->txtAddress;
+			$project->lat 				=$request->txtLat;
+			$project->lon 				=$request->txtLon;
 			$project->mattien 			=$request->txtMattien;
 			$project->dtruocnha 		=$request->txtDtruocnha;
 			$project->stang 			=$request->txtStang;
@@ -110,6 +112,8 @@ class ProjectController extends Controller {
 		$project->district 			=$request->selectDistrict;
 		$project->ward 				=$request->selectWard;
 		$project->address 			=$request->txtAddress;
+		$project->lat 				=$request->txtLat;
+		$project->lon 				=$request->txtLon;
 		$project->mattien 			=$request->txtMattien;
 		$project->dtruocnha 		=$request->txtDtruocnha;
 		$project->stang 			=$request->txtStang;

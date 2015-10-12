@@ -308,6 +308,8 @@
 <script src="{{ url('public/macadmin/js/filter.js') }}"></script> <!-- Filter for support page -->
 <script src="{{ url('public/macadmin/js/custom.js') }}"></script> <!-- Custom codes -->
 <script src="{{ url('public/macadmin/js/charts.js') }}"></script> <!-- Charts & Graphs -->
+<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script><!-- Google Maps API -->
+<script src="{{ url('public/macadmin/js/locationpicker.jquery.min.js') }}"></script>
  
 
 @if (Session::has('flash_message'))        

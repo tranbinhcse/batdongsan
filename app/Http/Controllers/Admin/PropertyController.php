@@ -99,6 +99,8 @@ class PropertyController extends Controller
         $property->district_id       =$request->selectDistrict;
         $property->ward_id           =$request->selectWard;
         $property->address           =$request->txtAddress;
+        $property->lat               =$request->txtLat;
+        $property->lon               =$request->txtLon;
         $property->project_id        =$request->selectProject;
         $property->price             =$request->txtPrice;
         $property->unit              =$request->selectUnit;
@@ -211,6 +213,8 @@ class PropertyController extends Controller
         $property->district_id       =$request->selectDistrict;
         $property->ward_id           =$request->selectWard;
         $property->address           =$request->txtAddress;
+        $property->lat               =$request->txtLat;
+        $property->lon               =$request->txtLon;
         $property->project_id        =$request->selectProject;
         $property->price             =$request->txtPrice;
         $property->unit              =$request->selectUnit;
