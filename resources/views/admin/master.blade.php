@@ -58,83 +58,31 @@
             <span>Menu</span>
           </button>
           <!-- Site name for smallar screens -->
-          <a href="index.html" class="navbar-brand">MacBeth</a>
+          <a href="{!! url('admin') !!}" class="navbar-brand">iFlyCMS - ADMIN</a>
         </div>
       
       
-
+ 
       <!-- Navigation starts -->
-      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">         
+      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 
+    
         <ul class="nav navbar-nav">  
 
           <!-- Upload to server link. Class "dropdown-big" creates big dropdown -->
           <li class="dropdown dropdown-big">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-success"><i class="fa fa-cloud-upload"></i></span> Upload to Cloud</a>
-            <!-- Dropdown -->
-            <ul class="dropdown-menu">
-              <li>
-                <!-- Progress bar -->
-                <p>Photo Upload in Progress</p>
-                <!-- Bootstrap progress bar -->
-                <div class="progress progress-striped active">
-                    <div class="progress-bar progress-bar-info"  role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                        <span class="sr-only">40% Complete</span>
-                    </div>
-                </div>
-
-                <hr />
-
-                <!-- Progress bar -->
-                <p>Video Upload in Progress</p>
-                <!-- Bootstrap progress bar -->
-                <div class="progress progress-striped active">
-                    <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                        <span class="sr-only">80% Complete</span>
-                    </div>
-                </div> 
-
-                <hr />             
-
-                <!-- Dropdown menu footer -->
-                <div class="drop-foot">
-                  <a href="#">View All</a>
-                </div>
-
-              </li>
-            </ul>
           </li>
 
           <!-- Sync to server link -->
           <li class="dropdown dropdown-big">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-danger"><i class="fa fa-refresh"></i></span> Sync with Server</a>
-            <!-- Dropdown -->
-            <ul class="dropdown-menu">
-              <li>
-                <!-- Using "icon-spin" class to rotate icon. -->
-                <p><span class="label label-info"><i class="fa fa-cloud"></i></span> Syncing Members Lists to Server</p>
-                <hr />
-                <p><span class="label label-warning"><i class="fa fa-cloud"></i></span> Syncing Bookmarks Lists to Cloud</p>
-
-                <hr />
-
-                <!-- Dropdown menu footer -->
-                <div class="drop-foot">
-                  <a href="#">View All</a>
-                </div>
-
-              </li>
+          </li>
             </ul>
           </li>
 
         </ul>
-
-        <!-- Search form -->
-        <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-        </form>
+ 
         <!-- Links -->
         <ul class="nav navbar-nav pull-right">
           <li class="dropdown pull-right">            
@@ -146,7 +94,7 @@
             <ul class="dropdown-menu">
               <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
               <li><a href="#"><i class="fa fa-cogs"></i> Settings</a></li>
-              <li><a href="login.html"><i class="fa fa-sign-out"></i> Logout</a></li>
+              <li><a href="{!! '/auth/logout '!!}"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
           </li>
           
@@ -259,7 +207,7 @@
     <div class="row">
       <div class="col-md-12">
             <!-- Copyright info -->
-            <p class="copy">Copyright &copy; 2012 | <a href="#">Your Site</a> </p>
+            <p class="copy">Copyright &copy; 2015 | <a href="#">iFlyCMS</a> </p>
       </div>
     </div>
   </div>

@@ -7,9 +7,7 @@ body{
 	font-size: 12px;
 	line-height: 22px;
 	color: #666;
-	border-top: 3px solid #eee;
 	background:#343434 url("../img/back.png") repeat;  
-	padding-top: 37px;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -411,6 +409,7 @@ text-decoration:none;
 .navbar *{
 	font-weight: normal !important;
 	text-shadow:none !important;
+
 	
 }
 
@@ -425,6 +424,7 @@ text-decoration:none;
   
   border-bottom: 1px solid #ddd;
   box-shadow: inset 0px 1px 1px #fff;
+  margin-bottom: 0
 }
 
 .navbar .caret{
@@ -949,7 +949,7 @@ table.dataTable thead .sorting_desc_disabled {
   background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
   background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
   background: linear-gradient(top, #f8f8f8, #f2f2f2);
-  padding: 8px 20px;
+  padding: 3px 20px;
   border-bottom: 1px solid #fff;
   box-shadow: inset 0px 1px 1px #fff;
 }

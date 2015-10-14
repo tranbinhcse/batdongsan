@@ -36,6 +36,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth', 'namespace' => 'Admin'],fu
 	});
 
 	Route::group(['prefix' => 'property'], function(){
+		Route::get('/', ['as' => 'admin.property.getList', 'uses' => 'PropertyController@index']);
 		Route::get('list', ['as' => 'admin.property.getList', 'uses' => 'PropertyController@index']);
 		Route::get('data',['as'=>'admin.property.listdata','uses'=>'PropertyController@ListData']);
 
@@ -54,6 +55,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth', 'namespace' => 'Admin'],fu
 	});
 
 	Route::group(['prefix'=>'post'],function () {
+		Route::get('/',['as'=>'admin.post.list','uses'=>'PostController@getList']);
 		Route::get('list',['as'=>'admin.post.list','uses'=>'PostController@getList']);
 		Route::get('add',['as'=>'admin.post.getAdd','uses'=>'PostController@getAdd']);
 		Route::post('add',['as'=>'admin.post.postAdd','uses'=>'PostController@postAdd']);
@@ -64,6 +66,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth', 'namespace' => 'Admin'],fu
 	});
 
 	Route::group(['prefix'=>'user'],function(){
+		Route::get('/',['as'=>'admin.user.getList','uses'=>'UserController@getList']);
 		Route::get('list',['as'=>'admin.user.getList','uses'=>'UserController@getList']);
 		Route::get('delete/{id}',['as'=>'admin.user.getDelete','uses'=>'UserController@getDelete']);
 		//Route::post('delete',['as'=>'admin.cate.postDelete','uses'=>'CateController@postDelete']);

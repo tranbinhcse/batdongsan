@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -9,7 +9,7 @@ class PostController extends Controller {
 
 	public function getpost()
 	{
-		return view('admin.post.add');
+		return view('app.dangtin');
 	}
 
 
